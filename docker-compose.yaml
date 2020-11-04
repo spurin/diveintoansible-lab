@@ -1,0 +1,164 @@
+version: '3.8' # if no version is specificed then v1 is assumed. Recommend v2 minimum
+
+services:
+  ubuntu-c:
+    hostname: ubuntu-c
+    container_name: ubuntu-c
+    image: spurin/diveintoansible:ansible
+    ports: 
+     - ${UBUNTUC_PORT_SSHD}:22
+     - ${UBUNTUC_PORT_TTYD}:7681
+    privileged: true
+    volumes:
+     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+     - ${CONFIG}:/config
+     - ${ANSIBLE_HOME}/shared:/shared
+     - ${ANSIBLE_HOME}/ubuntu-c/ansible:/home/ansible
+     - ${ANSIBLE_HOME}/ubuntu-c/root:/root
+    networks:
+     - diveinto.io
+
+  ubuntu1:
+    hostname: ubuntu1
+    container_name: ubuntu1
+    image: spurin/diveintoansible:ubuntu
+    ports: 
+     - ${UBUNTU1_PORT_SSHD}:22
+     - ${UBUNTU1_PORT_TTYD}:7681
+    privileged: true
+    volumes:
+     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+     - ${CONFIG}:/config
+     - ${ANSIBLE_HOME}/shared:/shared
+     - ${ANSIBLE_HOME}/ubuntu1/ansible:/home/ansible
+     - ${ANSIBLE_HOME}/ubuntu1/root:/root
+    networks:
+     - diveinto.io
+
+  ubuntu2:
+    hostname: ubuntu2
+    container_name: ubuntu2
+    image: spurin/diveintoansible:ubuntu
+    ports: 
+     - ${UBUNTU2_PORT_SSHD}:22
+     - ${UBUNTU2_PORT_TTYD}:7681
+    privileged: true
+    volumes:
+     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+     - ${CONFIG}:/config
+     - ${ANSIBLE_HOME}/shared:/shared
+     - ${ANSIBLE_HOME}/ubuntu2/ansible:/home/ansible
+     - ${ANSIBLE_HOME}/ubuntu2/root:/root
+    networks:
+     - diveinto.io
+
+  ubuntu3:
+    hostname: ubuntu3
+    container_name: ubuntu3
+    image: spurin/diveintoansible:ubuntu
+    ports: 
+     - ${UBUNTU3_PORT_SSHD}:22
+     - ${UBUNTU3_PORT_TTYD}:7681
+    privileged: true
+    volumes:
+     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+     - ${CONFIG}:/config
+     - ${ANSIBLE_HOME}/shared:/shared
+     - ${ANSIBLE_HOME}/ubuntu3/ansible:/home/ansible
+     - ${ANSIBLE_HOME}/ubuntu3/root:/root
+    networks:
+     - diveinto.io
+
+  centos1:
+    hostname: centos1
+    container_name: centos1
+    image: spurin/diveintoansible:centos
+    #image: spurin/diveintoansible:centos-sshd-2222
+    ports: 
+     - ${CENTOS1_PORT_SSHD}:22
+     #- ${CENTOS1_PORT_SSHD}:2222
+     - ${CENTOS1_PORT_TTYD}:7681
+    privileged: true
+    volumes:
+     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+     - ${CONFIG}:/config
+     - ${ANSIBLE_HOME}/shared:/shared
+     - ${ANSIBLE_HOME}/centos1/ansible:/home/ansible
+     - ${ANSIBLE_HOME}/centos1/root:/root
+    networks:
+     - diveinto.io
+
+  centos2:
+    hostname: centos2
+    container_name: centos2
+    image: spurin/diveintoansible:centos
+    ports: 
+     - ${CENTOS2_PORT_SSHD}:22
+     - ${CENTOS2_PORT_TTYD}:7681
+    privileged: true
+    volumes:
+     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+     - ${CONFIG}:/config
+     - ${ANSIBLE_HOME}/shared:/shared
+     - ${ANSIBLE_HOME}/centos2/ansible:/home/ansible
+     - ${ANSIBLE_HOME}/centos2/root:/root
+    networks:
+     - diveinto.io
+
+  centos3:
+    hostname: centos3
+    container_name: centos3
+    image: spurin/diveintoansible:centos
+    ports: 
+     - ${CENTOS3_PORT_SSHD}:22
+     - ${CENTOS3_PORT_TTYD}:7681
+    privileged: true
+    volumes:
+     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+     - ${CONFIG}:/config
+     - ${ANSIBLE_HOME}/shared:/shared
+     - ${ANSIBLE_HOME}/centos3/ansible:/home/ansible
+     - ${ANSIBLE_HOME}/centos3/root:/root
+    networks:
+     - diveinto.io
+
+  ## Docker in Docker
+  ##
+  ## Usage: on host that wishes to use docker
+  ##
+  ## sudo apt-get update
+  ## sudo apt -y install docker.io
+  ## export DOCKER_HOST=tcp://docker:2375
+  ## docker ps -a
+  ##
+  #docker:
+  #  hostname: docker
+  #  container_name: docker
+  #  image: spurin/diveintoansible:dind
+  #  privileged: yes
+  #  volumes:
+  #   - ${ANSIBLE_HOME}/shared:/shared
+  #  networks:
+  #   - diveinto.io
+
+  portal:
+    hostname: portal
+    container_name: portal
+    image: spurin/diveintoansible:portal
+    environment:
+     - NGINX_ENTRYPOINT_QUIET_LOGS=1
+    depends_on:
+     - centos1
+     - centos2
+     - centos3
+     - ubuntu1
+     - ubuntu2
+     - ubuntu3
+    ports:
+     - "1000:80"
+    networks:
+     - diveinto.io
+
+networks:
+  diveinto.io:
+    name: diveinto.io
