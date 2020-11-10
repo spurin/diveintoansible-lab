@@ -122,24 +122,24 @@ services:
     networks:
      - diveinto.io
 
-  ## Docker in Docker
-  ##
-  ## Usage: on host that wishes to use docker
-  ##
-  ## sudo apt-get update
-  ## sudo apt -y install docker.io
-  ## export DOCKER_HOST=tcp://docker:2375
-  ## docker ps -a
-  ##
-  #docker:
-  #  hostname: docker
-  #  container_name: docker
-  #  image: spurin/diveintoansible:dind
-  #  privileged: yes
-  #  volumes:
-  #   - ${ANSIBLE_HOME}/shared:/shared
-  #  networks:
-  #   - diveinto.io
+  # Docker in Docker
+  #
+  # Usage: on host that wishes to use docker
+  #
+  # sudo apt-get update
+  # sudo apt -y install docker.io
+  # export DOCKER_HOST=tcp://docker:2375
+  # docker ps -a
+  #
+  docker:
+    hostname: docker
+    container_name: docker
+    image: spurin/diveintoansible:dind
+    privileged: yes
+    volumes:
+     - ${ANSIBLE_HOME}/shared:/shared
+    networks:
+     - diveinto.io
 
   portal:
     hostname: portal
