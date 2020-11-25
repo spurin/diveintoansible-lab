@@ -74,14 +74,14 @@ If all goes well, it should start the lab environment.  You should keep this win
 
 ```
 docker-compose down
-docker-compose-rm
+docker-compose rm
 ```
 
 Should you encounter issues at this stage that you cannot resolve, please contact me or, raise an issue in the repository
 
 ### Extra step for Linux users
 
-Owing to the permissions model for Docker with Linux, there is one additional step that needs to be carried out.  With the lab working, and connectivity working as ansible, perform the following actions -
+Owing to the permissions model for Docker with Linux, there is one additional step that needs to be carried out.  With the lab working and connectivity working as ansible, perform the following actions -
 
 ```
 su - <enter the password of password>
