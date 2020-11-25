@@ -29,8 +29,9 @@ After unzipping the archive, it is important to rename the folder from 'diveinto
 
 ### Configuration
 
-Inside the diveintoansible-lab directory is a file called .env that needs to be edited with a text editor.  Please use the following as references for each
-operating system, accordingly, changing the username to match your own -
+Inside the diveintoansible-lab directory is a file called .env that needs to be edited with a text editor.  Whilst this file contains a lot of information, it is only the CONFIG and ANSIBLE_HOME entries that need to be customised.  
+
+Please use the following as references for each operating system accordingly, changing the username to match your own -
 
 Mac OS X -
 
@@ -70,14 +71,14 @@ Once you've made these changes, you should then be able to run the following in 
 docker-compose up
 ```
 
-If all goes well, it should start the lab environment.  You should keep this window open and running, whilst using the course.  In your browser, then browse to http://localhost:1000 and you should get the lab interface.  If you find, that you cannot login to the Ansible control host (ubuntu-c) as ansible and the password of password, then there is a fault with your configuration.  If this is the case, perform the following actions before troubleshooting or changing your configuration -
+If all goes well, it should start the lab environment.  You should keep this window open and running whilst using the course.  In your browser, then browse to http://localhost:1000 and you should get the lab interface.  If you find that you cannot login to the Ansible control host (ubuntu-c) as ansible and the password of password, then there is a fault with your configuration.  If this is the case, it is important to perform the following actions before troubleshooting or changing your configuration -
 
 ```
 docker-compose down
 docker-compose rm
 ```
 
-Should you encounter issues at this stage that you cannot resolve, please contact me or, raise an issue in the repository
+Should you encounter issues at this stage that you cannot resolve, please contact me or, raise an issue in the repository with as much detail as possible (including copies of your .env file)
 
 ### Extra step for Linux users
 
@@ -86,6 +87,7 @@ Owing to the permissions model for Docker with Linux, there is one additional st
 ```
 su - <enter the password of password>
 chown ansible /shared
+exit
 ```
 
 ### Lab commands
