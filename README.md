@@ -2,12 +2,12 @@
 
 Lab configuration for DiveInto.com's 'Dive Into Ansible' course
 
-If you experience any problems with the lab, please reach out to me direct, James Spurin, or flag an issue in the repository.
+If you experience any problems with the lab, please reach out to me direct, James Spurin, or flag an issue in the repository
 
 ### Installation of Docker and Docker-Compose
 
 The lab environment, makes use of Docker with Docker Compose.  If you're on Windows or Mac, you can install the convenient
-Docker Desktop to make both Docker and Docker-Compose available.
+Docker Desktop to make both Docker and Docker-Compose available
 
 Linux, will require the installation of Docker and Docker Compose
 
