@@ -15,9 +15,9 @@ Linux, will require the installation of Docker and Docker Compose
 
 I recommend that the lab environment is downloaded to your respective home directory, i.e. -
 
-Mac     - /Users/james/diveintoansible-lab
-Windows - /Users/james/diveintoansible-lab
-Linux   - /home/james/diveintoansible-lab
+* Mac     - /Users/james/diveintoansible-lab
+* Windows - /Users/james/diveintoansible-lab
+* Linux   - /home/james/diveintoansible-lab
 
 On a Mac or Linux system, you should be able to clone the repository accordingly from a terminal whilst in your homedirectory with the following command -
 
