@@ -20,7 +20,7 @@ Linux, will require the installation of Docker and Docker Compose
 I recommend that the lab environment is downloaded to your respective home directory, i.e. -
 
 * Mac     - /Users/james/diveintoansible-lab
-* Windows - /Users/james/diveintoansible-lab
+* Windows - C:\Users\james\diveintoansible-lab
 * Linux   - /home/james/diveintoansible-lab
 
 On a Mac or Linux system, you should be able to clone the repository accordingly from a terminal whilst in your homedirectory with the following command -
@@ -29,7 +29,50 @@ On a Mac or Linux system, you should be able to clone the repository accordingly
 
 On Windows, if you don't have git installed, the lab can be downloaded using the following url - https://github.com/spurin/diveintoansible-lab/archive/master.zip
 
-After unzipping the archive, it is important to rename the folder from 'diveintoansible-lab-master' to 'diveintoansible-lab'
+After unzipping the archive, you must ensure that copy a single diveintoansible-lab folder (and not, multiple folders, i.e. diveintoansible-lab/diveintoansible-lab) into your home directory.  See the next section on Validation.
+
+### Validation (IMPORTANT)
+
+Please verify that all of the lab files, are in the expected locations after either cloning, or extracting the zip file, for your corresponding OS and User.  They should be similar to the following -
+
+Mac OS X -
+
+```
+/Users/james/diveintoansible-lab/.env
+/Users/james/diveintoansible-lab/DiveIntoAnsible_Cover.png
+/Users/james/diveintoansible-lab/README.md
+/Users/james/diveintoansible-lab/docker-compose.yaml
+/Users/james/diveintoansible-lab/config/guest_name
+/Users/james/diveintoansible-lab/config/guest_passwd
+/Users/james/diveintoansible-lab/config/guest_shell
+/Users/james/diveintoansible-lab/config/root_passwd
+```
+
+Windows -
+
+```
+C:\Users\James\diveintoansible-lab\.env
+C:\Users\James\diveintoansible-lab\DiveIntoAnsible_Cover.png
+C:\Users\James\diveintoansible-lab\README.md
+C:\Users\James\diveintoansible-lab\docker-compose.yaml
+C:\Users\James\diveintoansible-lab\config\guest_name
+C:\Users\James\diveintoansible-lab\config\guest_passwd
+C:\Users\James\diveintoansible-lab\config\guest_shell
+C:\Users\James\diveintoansible-lab\config\root_passwd
+```
+
+Linux -
+
+```
+/home/james/diveintoansible-lab/.env
+/home/james/diveintoansible-lab/DiveIntoAnsible_Cover.png
+/home/james/diveintoansible-lab/README.md
+/home/james/diveintoansible-lab/docker-compose.yaml
+/home/james/diveintoansible-lab/config/guest_name
+/home/james/diveintoansible-lab/config/guest_passwd
+/home/james/diveintoansible-lab/config/guest_shell
+/home/james/diveintoansible-lab/config/root_passwd
+```
 
 ### Configuration
 
@@ -47,7 +90,7 @@ CONFIG=/Users/james/diveintoansible-lab/config
 ANSIBLE_HOME=/Users/james/diveintoansible-lab/ansible_home
 ```
 
-Windows (n.b. 'users' in lowercase is important) -
+Windows (n.b. 'users' and the username (in my case this is james) are in lowercase, this is important) -
 
 ```
 # Shared config volume
