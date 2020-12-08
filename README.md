@@ -118,7 +118,7 @@ Once you've made these changes, you should then be able to run the following in 
 docker-compose up
 ```
 
-If all goes well, it should start the lab environment.  You should keep this window open and running whilst using the course.  In your browser, then browse to http://localhost:1000 and you should get the lab interface.  If you find that you cannot login to the Ansible control host (ubuntu-c) as ansible and the password of password, then there is a fault with your configuration.  If this is the case, it is important to perform the following actions before troubleshooting or changing your configuration -
+If all goes well, it should start the lab environment.  You should keep this window open and running whilst using the course.  In your browser, then browse to http://localhost:1000 and you should get the lab interface.  If you find that you cannot login to the Ansible control host (ubuntu-c) as ansible and the password of password, then there is a fault with your configuration.  If this is the case, it is important to perform the following actions before troubleshooting or changing your configuration.  Press CTRL-C, then run the following -
 
 ```
 docker-compose rm
