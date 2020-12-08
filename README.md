@@ -29,7 +29,7 @@ On a Mac or Linux system, you should be able to clone the repository accordingly
 
 On Windows, if you don't have git installed, the lab can be downloaded using the following url - https://github.com/spurin/diveintoansible-lab/archive/master.zip
 
-After unzipping the archive, you must ensure that a single diveintoansible-lab folder is copied into your home directory (not multiple folders, i.e. diveintoansible-lab/diveintoansible-lab).  See the next section on Validation.
+After unzipping the archive, you must ensure that a single diveintoansible-lab folder is copied into your home directory (not multiple folders, i.e. diveintoansible-lab-master/diveintoansible-lab or diveintoansible-lab/diveintoansible-lab).  See the next section on Validation.
 
 ### Validation (IMPORTANT)
 
