@@ -76,7 +76,7 @@ Linux -
 
 ### Configuration
 
-Inside the diveintoansible-lab directory is a file called .env that needs to be edited with a text editor.  Whilst this file contains a lot of information, it is only the CONFIG and ANSIBLE_HOME entries that need to be customised.  
+Inside the diveintoansible-lab directory is a hidden file called .env that needs to be edited with a text editor.  Whilst this file contains a lot of information, it is only the CONFIG and ANSIBLE_HOME entries that need to be customised.  
 
 Please use the following as references for each operating system accordingly, changing the username to match your own -
 
