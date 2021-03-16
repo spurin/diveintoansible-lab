@@ -134,7 +134,7 @@ services:
   docker:
     hostname: docker
     container_name: docker
-    image: spurin/diveintoansible:dind
+    image: spurin/diveintoansible-rc:dind
     privileged: yes
     volumes:
      - ${ANSIBLE_HOME}/shared:/shared
@@ -144,7 +144,7 @@ services:
   portal:
     hostname: portal
     container_name: portal
-    image: spurin/diveintoansible:portal
+    image: spurin/diveintoansible-rc:portal
     environment:
      - NGINX_ENTRYPOINT_QUIET_LOGS=1
     depends_on:
