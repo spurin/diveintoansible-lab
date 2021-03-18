@@ -4,7 +4,7 @@ services:
   ubuntu-c:
     hostname: ubuntu-c
     container_name: ubuntu-c
-    image: spurin/diveintoansible:ansible
+    image: spurin/diveintoansible-rc:ansible
     ports: 
      - ${UBUNTUC_PORT_SSHD}:22
      - ${UBUNTUC_PORT_TTYD}:7681
@@ -21,7 +21,7 @@ services:
   ubuntu1:
     hostname: ubuntu1
     container_name: ubuntu1
-    image: spurin/diveintoansible:ubuntu
+    image: spurin/diveintoansible-rc:ubuntu
     ports: 
      - ${UBUNTU1_PORT_SSHD}:22
      - ${UBUNTU1_PORT_TTYD}:7681
@@ -38,7 +38,7 @@ services:
   ubuntu2:
     hostname: ubuntu2
     container_name: ubuntu2
-    image: spurin/diveintoansible:ubuntu
+    image: spurin/diveintoansible-rc:ubuntu
     ports: 
      - ${UBUNTU2_PORT_SSHD}:22
      - ${UBUNTU2_PORT_TTYD}:7681
@@ -55,7 +55,7 @@ services:
   ubuntu3:
     hostname: ubuntu3
     container_name: ubuntu3
-    image: spurin/diveintoansible:ubuntu
+    image: spurin/diveintoansible-rc:ubuntu
     ports: 
      - ${UBUNTU3_PORT_SSHD}:22
      - ${UBUNTU3_PORT_TTYD}:7681
@@ -72,8 +72,8 @@ services:
   centos1:
     hostname: centos1
     container_name: centos1
-    image: spurin/diveintoansible:centos
-    #image: spurin/diveintoansible:centos-sshd-2222
+    image: spurin/diveintoansible-rc:centos
+    #image: spurin/diveintoansible-rc:centos-sshd-2222
     ports: 
      - ${CENTOS1_PORT_SSHD}:22
      #- ${CENTOS1_PORT_SSHD}:2222
@@ -91,7 +91,7 @@ services:
   centos2:
     hostname: centos2
     container_name: centos2
-    image: spurin/diveintoansible:centos
+    image: spurin/diveintoansible-rc:centos
     ports: 
      - ${CENTOS2_PORT_SSHD}:22
      - ${CENTOS2_PORT_TTYD}:7681
@@ -108,7 +108,7 @@ services:
   centos3:
     hostname: centos3
     container_name: centos3
-    image: spurin/diveintoansible:centos
+    image: spurin/diveintoansible-rc:centos
     ports: 
      - ${CENTOS3_PORT_SSHD}:22
      - ${CENTOS3_PORT_TTYD}:7681
