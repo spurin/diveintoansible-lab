@@ -4,7 +4,7 @@ services:
   ubuntu-c:
     hostname: ubuntu-c
     container_name: ubuntu-c
-    image: spurin/diveintoansible:ansible
+    image: spurin/diveintoansible:tests
     ports: 
      - ${UBUNTUC_PORT_SSHD}:22
      - ${UBUNTUC_PORT_TTYD}:7681
@@ -13,8 +13,9 @@ services:
      - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
-     - ${ANSIBLE_HOME}/ubuntu-c/ansible:/home/ansible
-     - ${ANSIBLE_HOME}/ubuntu-c/root:/root
+     - ${ANSIBLE_HOME}/tests/ansible:/home/ansible
+     - ${ANSIBLE_HOME}/tests/root:/root
+     - ${CONFIG}/../.env:/etc/.env
     networks:
      - diveinto.io
 
