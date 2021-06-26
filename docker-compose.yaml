@@ -5,6 +5,14 @@ services:
     hostname: ubuntu-c
     container_name: ubuntu-c
     image: spurin/diveintoansible:tests
+    depends_on:
+     - centos1
+     - centos2
+     - centos3
+     - ubuntu1
+     - ubuntu2
+     - ubuntu3
+     - portal
     ports: 
      - ${UBUNTUC_PORT_SSHD}:22
      - ${UBUNTUC_PORT_TTYD}:7681
