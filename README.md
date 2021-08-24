@@ -132,12 +132,42 @@ docker-compose rm
 
 Should you encounter issues at this stage that you cannot resolve, please contact me or, raise an issue in the repository with as much detail as possible (including copies of your .env file)
 
+### Troubleshooting Common Issues
+
+#### 1. Cannot log in as the ansible user
+
+When the lab environment is configured and started, it reads the configuration directory and sets up the ansible user.  This is based on the entry in config/guest_name.  It expects the config directory to be provided as a volume using the CONFIG entry in the .env file.  See the 'Configuration' section above as this will vary for Windows, Linux and Mac OS X.  
+
+If this entry is incorrect, it will not find the config directory and subsequently, the ansible user will not be created.
+
+A convenient way of verifying that the path you're using is correct is by running a similar command to the following, substituing the path you're trying to use.  If you see the output of 'ansible', the configuration path is as expected, if not, you'll need to tweak the configuration -
+
+```
+docker run --rm -v /Users/james/diveintoansible-lab/config:/config ubuntu cat /config/guest_name
+```
+
+This command passes the volume mount manually (-v for volume), the local path (/Users/james/diveintoansible-lab/config), the target mount point (:/config).  Then, it runs a ubuntu container with a command to show the contents of /config/guest_name.  Finally, --rm cleans up the container after it exits.
+
+Lastly, the ANSIBLE_HOME entry within .env should use the same format.
+
+#### 2. WSL with Ubuntu and exit code 255
+
+When using Ubuntu with WSL, this issue is a result of the WSL Ubuntu image not having systemd.  It is a stripped down version of Ubuntu. The containers, all leverage systemd and when they try to use the parents subsystem this is missing.   We can work around this by just creating the components that are needed, prior to the execution of ```docker-compose up```
+
+```
+sudo mkdir -p /sys/fs/cgroup/systemd
+sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
+```
+
+This will need to be executed once every time the system is rebooted.  Rather than making permanent changes, I recommend that in these cases, a quick shell script is created to start the lab with these commands, followed by ```docker-compose up```
+
 ### Extra step for Linux users
 
 Owing to the permissions model for Docker with Linux, there is one additional step that needs to be carried out.  With the lab working and connectivity working as ansible, perform the following actions -
 
 ```
-su - <enter the password of password>
+su - 
+<enter the password of password when prompted>
 chown ansible /shared
 exit
 ```
