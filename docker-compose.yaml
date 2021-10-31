@@ -144,7 +144,7 @@ services:
   portal:
     hostname: portal
     container_name: portal
-    image: spurin/diveintoansible:portal
+    image: spurin/diveintoansible:portal-gcp-cloudshell
     environment:
      - NGINX_ENTRYPOINT_QUIET_LOGS=1
     depends_on:
