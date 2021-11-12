@@ -4,7 +4,7 @@ Lab configuration for DiveInto.com's 'Dive Into Ansible' course
 
 The related code repository is available at - https://github.com/spurin/diveintoansible
 
-At present the course is available on Udemy at [https://www.udemy.com/course/diveintoansible](https://www.udemy.com/course/diveintoansible/?referralCode=28BBB7A1DCCD01BBA51F) and will be published by Packt on other platforms like O'Reilly towards the end of December 2020 or January 2021.
+The course is available on [Udemy](https://www.udemy.com/course/diveintoansible/?referralCode=28BBB7A1DCCD01BBA51F), [PacktPub]( https://www.packtpub.com/product/dive-into-ansible-from-beginner-to-expert-in-ansible-video/9781801076937) and [O'Reilly Learning](https://www.oreilly.com/library/view/dive-into-ansible/9781801076937/)
 
 If you experience any problems with the lab, please reach out to me direct, James Spurin, or flag an issue in the repository
 
@@ -13,7 +13,7 @@ If you experience any problems with the lab, please reach out to me direct, Jame
 The lab environment, makes use of Docker with Docker Compose.  If you're on Windows or Mac, you can install the convenient
 Docker Desktop to make both Docker and Docker-Compose available
 
-Linux, will require the installation of Docker and Docker Compose
+Linux, will require the installation of Docker and Docker Compose (Download the latest release from the [docker-compose release page](https://github.com/docker/compose/releases) for Linux)
 
 ### Download and Preparation
 
@@ -76,7 +76,7 @@ Linux -
 
 ### Configuration
 
-Inside the diveintoansible-lab directory is a hidden file called .env that needs to be edited with a text editor.  Whilst this file contains a lot of information, it is only the CONFIG and ANSIBLE_HOME entries that need to be customised.  
+Inside the diveintoansible-lab directory is a hidden file called .env that may need to be edited with a text editor.  Whilst this file contains a lot of information, it is only the CONFIG and ANSIBLE_HOME entries that need to be customised if you encounter issues, logging in as the ansible user (should be ansible/password as the username/password combination).  
 
 Please use the following as references for each operating system accordingly, changing the username to match your own -
 
