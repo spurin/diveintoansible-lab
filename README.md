@@ -58,6 +58,6 @@ sudo podman stop --all; sudo podman rm --all
 
 ### Thanks and Kudos!
 
-Thanks and Kudos to the following for their efforts on this specific use case - @MaximUltimatum
+Thanks and Kudos to the following for their efforts on this specific use case - [@MaximUltimatum](https://github.com/MaximUltimatum)
 
 ![DiveIntoAnsible Cover](DiveIntoAnsible_Cover.png?raw=true "Dive Into Ansible")
