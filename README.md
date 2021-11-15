@@ -4,11 +4,11 @@ Lab configuration for DiveInto.com's 'Dive Into Ansible' course
 
 The related code repository is available at - https://github.com/spurin/diveintoansible
 
-This is an experimental branch for use with Podman and Podman-Compose.  Support is not guaranteed and your milage may vary.  Requires root access (owing to the rootfull connectivity requirements).
+This is an experimental branch for use with Podman and Podman-Compose.  Support is not guaranteed and your mileage may vary.  Requires root access (owing to the requirements for rootfull connectivity).
 
 ### Download and Preparation
 
-With both podman and podman-compose available, clone the repository -
+With both podman and podman-compose installed, clone the repository -
 
 ```git clone --branch podman-compose https://github.com/spurin/diveintoansible-lab.git```
 
@@ -18,7 +18,7 @@ For podman to work with dns resolution, a cni driver of https://github.com/conta
 
 This can be downloaded and compiled using golang, alternatively, a precompiled binary is available in the cni folder.  
 
-As root, copy this file to /usr/local/libexec/cni
+As root, copy this file to /usr/local/libexec/cni -
 
 ```sudo cp cni/dnsname /usr/local/libexec/cni/```
 
@@ -28,7 +28,7 @@ As root, copy this file to /usr/local/libexec/cni
 
 Once complete, listing the network should show the PLUGIN of dnsname -
 
-```podman network ls```
+```sudo podman network ls```
 
 ### Start the lab
 
@@ -53,7 +53,7 @@ Keep this terminal open and running whilst using the course.  In your browser, t
 ### Stopping and removing the lab
 
 ```
-sudo podman stop --all; podman rm --all
+sudo podman stop --all; sudo podman rm --all
 ```
 
 ### Thanks and Kudos!
