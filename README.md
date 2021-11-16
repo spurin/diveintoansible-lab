@@ -27,9 +27,9 @@ For podman to work with dns resolution, a cni driver of https://github.com/conta
 
 This can be downloaded and compiled using golang, alternatively, a precompiled binary is available in the cni folder.  
 
-As root, copy this file to /usr/local/libexec/cni -
+As root, copy this file to /usr/libexec/cni -
 
-```sudo cp cni/dnsname /usr/local/libexec/cni/```
+```sudo cp cni/dnsname /usr/libexec/cni/```
 
 ### Create a diveinto.io network
 
