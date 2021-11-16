@@ -12,6 +12,15 @@ With both podman and podman-compose available, clone the repository -
 
 ```git clone --branch podman-compose https://github.com/spurin/diveintoansible-lab.git```
 
+### Create the user home directories
+
+Unlike docker-compose, podman-compose doesn't auto create the user home directories during startup.  It is important that these are empty so that
+they are populated as the user is added, during first initialization.  Run the following command -
+
+```
+for entry in 1 2 3 4 5 6 -c; do for os in centos ubuntu; do mkdir -p ansible_home/${os}${entry}/ansible; mkdir -p ansible_home/${os}${entry}/root; done; done
+```
+
 ### Install the dnsname cni driver
 
 For podman to work with dns resolution, a cni driver of https://github.com/containers/dnsname is required.
@@ -25,6 +34,41 @@ As root, copy this file to /usr/local/libexec/cni
 ### Create a diveinto.io network
 
 ```sudo podman network create diveinto.io```
+
+### Update the file /etc/cni/net.d/diveinto.io.conflist
+
+Add the following, to the plugins array -
+
+```
+      {
+         "type": "dnsname",
+         "domainName": "dns.podman",
+         "capabilities": {
+            "aliases": true
+         }
+      }
+```
+
+As this is json, remember to add the comma to the entry presceding this.  After this is edited, it should look like the following at the bottom of the file -
+
+```
+      {
+         "type": "firewall",
+         "backend": ""
+      },
+      {
+         "type": "tuning"
+      },
+      {
+         "type": "dnsname",
+         "domainName": "dns.podman",
+         "capabilities": {
+            "aliases": true
+         }
+      }
+   ]
+}
+```
 
 Once complete, listing the network should show the PLUGIN of dnsname -
 
