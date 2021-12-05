@@ -1,19 +1,28 @@
 ## Dive Into Ansible Course Lab
 
-Lab configuration for DiveInto.com's 'Dive Into Ansible' course
+✨ This repository provides a local lab configuration for DiveInto.com's 'Dive Into Ansible' course ✨
 
 The related code repository is available at - https://github.com/spurin/diveintoansible
 
-The course is available on [Udemy](https://www.udemy.com/course/diveintoansible/?referralCode=28BBB7A1DCCD01BBA51F), [PacktPub]( https://www.packtpub.com/product/dive-into-ansible-from-beginner-to-expert-in-ansible-video/9781801076937) and [O'Reilly Learning](https://www.oreilly.com/library/view/dive-into-ansible/9781801076937/)
+The video course releating to this lab is available on -
 
-If you experience any problems with the lab, please reach out to me direct, James Spurin, or flag an issue in the repository
+* [DiveInto](https://diveinto.com)
+* [Udemy](https://www.udemy.com/course/diveintoansible/?referralCode=28BBB7A1DCCD01BBA51F)
+* [O'Reilly](https://learning.oreilly.com/videos/dive-into-ansible/9781801076937)
+* [PacktPub](https://www.packtpub.com/product/dive-into-ansible-from-beginner-to-expert-in-ansible-video/9781801076937)
 
+🆘 If you experience any problems with the lab or the course, please reach out to me direct, James Spurin, or flag an issue in the repositories.  I'd much rather know about an issue and in doing so, help yourself and others who encounter similar problems
+
+🚀 **New Update:** The diveintoansible-lab can now also be executed in the cloud using Google's Free Cloudshell Tier. For this, a standard Google account is required.  The lab setup process in Cloudshell can be started with a single click and a setup tutorial will appear on the right hand side.  Please see https://diveinto.com/p/playground
+
+**The steps that follow below are for a local running lab instance which is the recommend approach.**  Whilst the new Google Cloudshell based lab is convenient and is great for spinning up an Ansible lab in a matter of minutes or for adhoc experimentation, a locally running lab has improved latency and you'll also benefit from data persistence (any custom playbooks you create will remain on your system between lab restarts) -
+  
 ### Installation of Docker and Docker-Compose
 
 The lab environment, makes use of Docker with Docker Compose.  If you're on Windows or Mac, you can install the convenient
 Docker Desktop to make both Docker and Docker-Compose available
 
-Linux, will require the installation of Docker and Docker Compose (Download the latest release from the [docker-compose release page](https://github.com/docker/compose/releases) for Linux)
+Linux, will require the installation of Docker and Docker Compose
 
 ### Download and Preparation
 
@@ -23,19 +32,23 @@ I recommend that the lab environment is downloaded to your respective home direc
 * Windows - C:\Users\james\diveintoansible-lab
 * Linux   - /home/james/diveintoansible-lab
 
-On a Mac or Linux system, you should be able to clone the repository accordingly from a terminal whilst in your home directory with the following command -
+**Mac or Linux**
+
+You should be able to clone the repository accordingly from a terminal whilst in your home directory with the following command -
 
 ```git clone https://github.com/spurin/diveintoansible-lab.git```
 
-On Windows, if you don't have git installed, the lab can be downloaded using the following url - https://github.com/spurin/diveintoansible-lab/archive/master.zip
+**Windows**
 
-After unzipping the archive, you must ensure that a single diveintoansible-lab folder is copied into your home directory (not multiple folders, i.e. diveintoansible-lab-master/diveintoansible-lab or diveintoansible-lab/diveintoansible-lab).  See the next section on Validation.
+If you don't have git installed, the lab can be downloaded using the following url - https://github.com/spurin/diveintoansible-lab/archive/master.zip
+
+After unzipping the archive, you must ensure that a single diveintoansible-lab folder is copied into your home directory (not multiple folders, i.e. **diveintoansible-lab-master**/diveintoansible-lab or **diveintoansible-lab/diveintoansible-lab**).  See the next section on Validation.
 
 ### Validation (IMPORTANT)
 
-Please verify that all of the lab files, are in the expected locations after either cloning, or extracting the zip file, for your corresponding OS and User.  They should be similar to the following -
+Please verify that all of the lab files, are in the expected locations after either cloning, or extracting the zip file, for your corresponding OS and User.  They should be similar to the following and all files should exist (the config files are required to setup the ansible user upon startup) -
 
-Mac OS X -
+**Mac OS X**
 
 ```
 /Users/james/diveintoansible-lab/.env
@@ -48,7 +61,7 @@ Mac OS X -
 /Users/james/diveintoansible-lab/config/root_passwd
 ```
 
-Windows -
+**Windows**
 
 ```
 C:\Users\James\diveintoansible-lab\.env
@@ -61,7 +74,7 @@ C:\Users\James\diveintoansible-lab\config\guest_shell
 C:\Users\James\diveintoansible-lab\config\root_passwd
 ```
 
-Linux -
+**Linux**
 
 ```
 /home/james/diveintoansible-lab/.env
@@ -76,11 +89,9 @@ Linux -
 
 ### Configuration
 
-Inside the diveintoansible-lab directory is a hidden file called .env that may need to be edited with a text editor.  Whilst this file contains a lot of information, it is only the CONFIG and ANSIBLE_HOME entries that need to be customised if you encounter issues, logging in as the ansible user (should be ansible/password as the username/password combination).  
+Inside the diveintoansible-lab directory is a hidden file called .env that can be edited with a text editor.  Whilst this file contains a lot of information, it is only the CONFIG and ANSIBLE_HOME entries that are of consideration.  If you find that you cannot login as the ansible user with the password of password and the config files exist as per the Validation section, then update these entries according to your environment -
 
-Please use the following as references for each operating system accordingly, changing the username to match your own -
-
-Mac OS X -
+**Mac OS X**
 
 ```
 # Shared config volume
@@ -90,7 +101,7 @@ CONFIG=/Users/james/diveintoansible-lab/config
 ANSIBLE_HOME=/Users/james/diveintoansible-lab/ansible_home
 ```
 
-Windows (n.b. 'users' and the username (in my case this is james) are in lowercase, this is important) -
+**Windows (n.b. 'users' and the username (in my case this is james) are in lowercase, this is important)**
 
 ```
 # Shared config volume
@@ -100,7 +111,7 @@ CONFIG=/host_mnt/c/users/james/diveintoansible-lab/config
 ANSIBLE_HOME=/host_mnt/c/users/james/diveintoansible-lab/ansible_home
 ```
 
-Linux -
+**Linux**
 
 ```
 # Shared config volume
@@ -132,12 +143,31 @@ docker-compose rm
 
 Should you encounter issues at this stage that you cannot resolve, please contact me or, raise an issue in the repository with as much detail as possible (including copies of your .env file)
 
+### Troubleshooting Common Issues
+
+#### 1. Cannot log in as the ansible user
+
+When the lab environment is configured and started, it reads the configuration directory and sets up the ansible user.  This is based on the entry in config/guest_name.  It expects the config directory to be provided as a volume using the CONFIG entry in the .env file.  See the 'Configuration' section above as this will vary for Windows, Linux and Mac OS X.  
+
+If this entry is incorrect, it will not find the config directory and subsequently, the ansible user will not be created.
+
+A convenient way of verifying that the path you're using is correct is by running a similar command to the following, substituing the path you're trying to use.  If you see the output of 'ansible', the configuration path is as expected, if not, you'll need to tweak the configuration -
+
+```
+docker run --rm -v /Users/james/diveintoansible-lab/config:/config ubuntu cat /config/guest_name
+```
+
+This command passes the volume mount manually (-v for volume), the local path (/Users/james/diveintoansible-lab/config), the target mount point (:/config).  Then, it runs a ubuntu container with a command to show the contents of /config/guest_name.  Finally, --rm cleans up the container after it exits.
+
+Lastly, the ANSIBLE_HOME entry within .env should use the same format.
+
 ### Extra step for Linux users
 
 Owing to the permissions model for Docker with Linux, there is one additional step that needs to be carried out.  With the lab working and connectivity working as ansible, perform the following actions -
 
 ```
-su - <enter the password of password>
+su - 
+<enter the password of password when prompted>
 chown ansible /shared
 exit
 ```
