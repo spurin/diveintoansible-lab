@@ -15,7 +15,7 @@ The video course releating to this lab is available on -
 
 🚀 **New Update:** The diveintoansible-lab can now also be executed in the cloud using Google's Free Cloudshell Tier. For this, a standard Google account is required.  The lab setup process in Cloudshell can be started with a single click and a setup tutorial will appear on the right hand side.  Please see https://diveinto.com/p/playground
 
-**The steps that follow below are for a local running lab instance which is the recommend approach.**  Whilst the new Google Cloudshell based lab is convenient and is great for spinning up an Ansible lab in a matter of minutes or for adhoc experimentation, a locally running lab has improved latency and you'll also benefit from data persistence (any custom playbooks you create will remain on your system between lab restarts) -
+❗ **The steps that follow below are for a local running lab instance which is the recommend approach.**  Whilst the new Google Cloudshell based lab is convenient and is great for spinning up an Ansible lab in a matter of minutes or for adhoc experimentation, a locally running lab has improved latency and you'll also benefit from data persistence (any custom playbooks you create will remain on your system between lab restarts) -
   
 ### Installation of Docker and Docker-Compose
 
