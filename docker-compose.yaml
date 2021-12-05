@@ -4,13 +4,12 @@ services:
   ubuntu-c:
     hostname: ubuntu-c
     container_name: ubuntu-c
-    image: spurin/diveintoansible:ansible
+    image: spurin/diveintoansible-rc:ansible
     ports: 
      - ${UBUNTUC_PORT_SSHD}:22
      - ${UBUNTUC_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/ubuntu-c/ansible:/home/ansible
@@ -21,13 +20,12 @@ services:
   ubuntu1:
     hostname: ubuntu1
     container_name: ubuntu1
-    image: spurin/diveintoansible:ubuntu
+    image: spurin/diveintoansible-rc:ubuntu
     ports: 
      - ${UBUNTU1_PORT_SSHD}:22
      - ${UBUNTU1_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/ubuntu1/ansible:/home/ansible
@@ -38,13 +36,12 @@ services:
   ubuntu2:
     hostname: ubuntu2
     container_name: ubuntu2
-    image: spurin/diveintoansible:ubuntu
+    image: spurin/diveintoansible-rc:ubuntu
     ports: 
      - ${UBUNTU2_PORT_SSHD}:22
      - ${UBUNTU2_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/ubuntu2/ansible:/home/ansible
@@ -55,13 +52,12 @@ services:
   ubuntu3:
     hostname: ubuntu3
     container_name: ubuntu3
-    image: spurin/diveintoansible:ubuntu
+    image: spurin/diveintoansible-rc:ubuntu
     ports: 
      - ${UBUNTU3_PORT_SSHD}:22
      - ${UBUNTU3_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/ubuntu3/ansible:/home/ansible
@@ -72,15 +68,14 @@ services:
   centos1:
     hostname: centos1
     container_name: centos1
-    image: spurin/diveintoansible:centos
-    #image: spurin/diveintoansible:centos-sshd-2222
+    image: spurin/diveintoansible-rc:centos
+    #image: spurin/diveintoansible-rc:centos-sshd-2222
     ports: 
      - ${CENTOS1_PORT_SSHD}:22
      #- ${CENTOS1_PORT_SSHD}:2222
      - ${CENTOS1_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/centos1/ansible:/home/ansible
@@ -91,13 +86,12 @@ services:
   centos2:
     hostname: centos2
     container_name: centos2
-    image: spurin/diveintoansible:centos
+    image: spurin/diveintoansible-rc:centos
     ports: 
      - ${CENTOS2_PORT_SSHD}:22
      - ${CENTOS2_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/centos2/ansible:/home/ansible
@@ -108,13 +102,12 @@ services:
   centos3:
     hostname: centos3
     container_name: centos3
-    image: spurin/diveintoansible:centos
+    image: spurin/diveintoansible-rc:centos
     ports: 
      - ${CENTOS3_PORT_SSHD}:22
      - ${CENTOS3_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/centos3/ansible:/home/ansible
@@ -134,7 +127,7 @@ services:
   docker:
     hostname: docker
     container_name: docker
-    image: spurin/diveintoansible:dind
+    image: spurin/diveintoansible-rc:dind
     privileged: yes
     volumes:
      - ${ANSIBLE_HOME}/shared:/shared
@@ -144,7 +137,7 @@ services:
   portal:
     hostname: portal
     container_name: portal
-    image: spurin/diveintoansible:portal
+    image: spurin/diveintoansible-rc:portal
     environment:
      - NGINX_ENTRYPOINT_QUIET_LOGS=1
     depends_on:
