@@ -4,14 +4,14 @@
 
 The related code repository is available at - https://github.com/spurin/diveintoansible
 
-The video course releating to this lab is available on -
+The video course relating to this lab is available on -
 
 * [DiveInto](https://diveinto.com)
 * [Udemy](https://www.udemy.com/course/diveintoansible/?referralCode=28BBB7A1DCCD01BBA51F)
 * [O'Reilly](https://learning.oreilly.com/videos/dive-into-ansible/9781801076937)
 * [PacktPub](https://www.packtpub.com/product/dive-into-ansible-from-beginner-to-expert-in-ansible-video/9781801076937)
 
-🆘 If you experience any problems with the lab or the course, please reach out to me direct, James Spurin, or flag an issue in the repositories.  I'd much rather know about an issue and in doing so, help yourself and others who encounter similar problems
+🆘 If you experience any problems with the lab or the course, please reach out to me direct, James Spurin, or flag an issue in the repositories.  I'd much rather know about an issue and in doing so, help yourself and others who encounter similar problems, Thanks!
 
 🚀 **New Update:** The diveintoansible-lab can now also be executed in the cloud using Google's Free Cloudshell Tier. For this, a standard Google account is required.  The lab setup process in Cloudshell can be started with a single click and a setup tutorial will appear on the right hand side.  Please see https://diveinto.com/p/playground
 
