@@ -186,4 +186,10 @@ To remove the lab
 docker-compose rm
 ```
 
+## Container Sources for the Lab Images
+
+The Dockerfiles used for the creation of these lab images are available from the following -
+
+* [spurin/container-systemd](https://github.com/spurin/container-systemd)
+
 ![DiveIntoAnsible Cover](DiveIntoAnsible_Cover.png?raw=true "Dive Into Ansible")
