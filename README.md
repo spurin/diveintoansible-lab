@@ -192,4 +192,6 @@ The Dockerfiles used for the creation of these lab images are available from the
 
 * [spurin/container-systemd](https://github.com/spurin/container-systemd)
 
+---
+
 ![DiveIntoAnsible Cover](DiveIntoAnsible_Cover.png?raw=true "Dive Into Ansible")
