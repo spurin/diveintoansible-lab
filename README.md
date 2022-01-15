@@ -190,7 +190,7 @@ docker-compose rm
 
 The Dockerfiles used for the creation of these lab images are available from the following -
 
-* [spurin/container-systemd](https://github.com/spurin/container-systemd)
+* [spurin/diveintoansible-images](https://github.com/spurin/diveintoansible-images)
 
 ---
 
