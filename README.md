@@ -19,10 +19,10 @@ The video course relating to this lab is available on -
   
 ### Installation of Docker and Docker-Compose
 
-The lab environment, makes use of Docker with Docker Compose.  If you're on **Windows or Mac**, you can install the convenient
+The lab environment, makes use of Docker with Docker Compose.  If you're on Windows or Mac, you can install the convenient
 Docker Desktop to make both Docker and Docker-Compose available
 
-**Linux**, will require the installation of Docker and Docker Compose.  Be aware, when installing docker-compose via apt or yum/dnf, you may install an older version that is incompatible with the lab. It is recommended that you install a version >= 1.29.1.  A standalone binary can be downloaded from the Github [releases](https://github.com/docker/compose/releases) page
+Linux, will require the installation of Docker and Docker Compose
 
 ### Download and Preparation
 
