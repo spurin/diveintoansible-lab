@@ -138,6 +138,23 @@ services:
     hostname: portal
     container_name: portal
     image: spurin/diveintoansible-rc:portal
+    #
+    # Portal Environment Variables
+    #
+    # If you run the lab remotely and need to change the links 
+    # from http://localhost:port to your ip, i.e. 
+    # http://1.2.3.4:port, add the following as an environment
+    # variable with your IP address
+    #
+    # - LOCALHOST_OVERRIDE=1.2.3.4
+    #
+    # By default, all links will open directly
+    # in the portal, if you wish for them to open
+    # as new tabs, include the following in the environment
+    # section
+    #
+    # - OPEN_LINKS_AS_TABS=1
+    #
     environment:
      - NGINX_ENTRYPOINT_QUIET_LOGS=1
     depends_on:
