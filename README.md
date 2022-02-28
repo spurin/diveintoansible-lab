@@ -1,5 +1,10 @@
 ## Dive Into Ansible Course Lab
 
+![Follow](https://shields.io/twitter/follow/jamesspurin?label=Follow)
+![GitHub Stars](https://shields.io/github/stars/spurin/diveintoansible?style=social)
+![GitHub Stars](https://shields.io/github/forks/spurin/diveintoansible?style=social)
+![GitHub Stars](https://shields.io/docker/pulls/spurin/diveintoansible)
+
 ✨ This repository provides a local lab configuration for DiveInto.com's 'Dive Into Ansible' course ✨
 
 The related code repository is available at - https://github.com/spurin/diveintoansible
