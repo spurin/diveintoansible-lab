@@ -1,5 +1,8 @@
 ## Dive Into Ansible Course Lab
 
+[![Follow](https://shields.io/twitter/follow/jamesspurin?label=Follow)](https://twitter.com/jamesspurin)
+[![GitHub Stars](https://shields.io/docker/pulls/spurin/diveintoansible)](https://hub.docker.com/r/spurin/diveintoansible)
+
 ✨ This repository provides a local lab configuration for DiveInto.com's 'Dive Into Ansible' course ✨
 
 The related code repository is available at - https://github.com/spurin/diveintoansible
@@ -13,16 +16,16 @@ The video course relating to this lab is available on -
 
 🆘 If you experience any problems with the lab or the course, please reach out to me direct, James Spurin, or flag an issue in the repositories.  I'd much rather know about an issue and in doing so, help yourself and others who encounter similar problems, Thanks!
 
-🚀 **New Update:** The diveintoansible-lab can now also be executed in the cloud using Google's Free Cloudshell Tier. For this, a standard Google account is required.  The lab setup process in Cloudshell can be started with a single click and a setup tutorial will appear on the right hand side.  Please see https://diveinto.com/p/playground
+🚀 **New Update:** The diveintoansible-lab can now also be executed in the cloud using Google's Free Cloud Shell Tier. For this, a standard Google account is required.  The lab setup process in Cloud Shell can be started with a single click and a setup tutorial will appear on the right hand side.  Please see https://diveinto.com/p/playground
 
-❗ **The steps that follow below are for a local running lab instance which is the recommend approach.**  Whilst the new Google Cloudshell based lab is convenient and is great for spinning up an Ansible lab in a matter of minutes or for adhoc experimentation, a locally running lab has improved latency and you'll also benefit from data persistence (any custom playbooks you create will remain on your system between lab restarts) -
+❗ **The steps that follow below are for a local running lab instance which is the recommend approach.**  Whilst the new Google Cloud Shell based lab is convenient and is great for spinning up an Ansible lab in a matter of minutes or for adhoc experimentation, a locally running lab has improved latency and you'll also benefit from data persistence (any custom playbooks you create will remain on your system between lab restarts) -
   
 ### Installation of Docker and Docker-Compose
 
-The lab environment, makes use of Docker with Docker Compose.  If you're on Windows or Mac, you can install the convenient
+The lab environment, makes use of Docker with Docker Compose.  If you're on **Windows or Mac**, you can install the convenient
 Docker Desktop to make both Docker and Docker-Compose available
 
-Linux, will require the installation of Docker and Docker Compose
+**Linux**, will require the installation of Docker and Docker Compose.  Be aware, when installing docker-compose via apt or yum/dnf, you may install an older version that is incompatible with the lab. It is recommended that you install a version >= 1.29.1.  A standalone binary can be downloaded from the Github [releases](https://github.com/docker/compose/releases) page
 
 ### Download and Preparation
 
@@ -89,7 +92,9 @@ C:\Users\James\diveintoansible-lab\config\root_passwd
 
 ### Configuration
 
-Inside the diveintoansible-lab directory is a hidden file called .env that can be edited with a text editor.  Whilst this file contains a lot of information, it is only the CONFIG and ANSIBLE_HOME entries that are of consideration.  If you find that you cannot login as the ansible user with the password of password and the config files exist as per the Validation section, then update these entries according to your environment -
+In earlier releases of Docker and with the variations between Operating Systems, we had to configure the .env file with specific CONFIG and ANSIBLE_HOME entries.  *This step should no longer be necessary*
+
+If you find that you cannot login as the ansible user with the password of password and the config files exist as per the Validation section, then update both of these entries according to your environment -
 
 **Mac OS X**
 
@@ -123,7 +128,7 @@ ANSIBLE_HOME=/home/james/diveintoansible-lab/ansible_home
 
 ### Running the lab
 
-Once you've made these changes, you should then be able to run the following in your command prompt or terminal, directly from the diveintoansible-lab directory -
+You should then be able to run the following in your command prompt or terminal, directly from the diveintoansible-lab directory -
 
 ```
 docker-compose up
@@ -185,5 +190,13 @@ To remove the lab
 ```
 docker-compose rm
 ```
+
+## Container Sources for the Lab Images
+
+The Dockerfiles used for the creation of these lab images are available from the following -
+
+* [spurin/diveintoansible-images](https://github.com/spurin/diveintoansible-images)
+
+---
 
 ![DiveIntoAnsible Cover](DiveIntoAnsible_Cover.png?raw=true "Dive Into Ansible")
