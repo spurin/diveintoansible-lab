@@ -76,9 +76,9 @@ Linux -
 
 ### Configuration
 
-Inside the diveintoansible-lab directory is a hidden file called .env that needs to be edited with a text editor.  Whilst this file contains a lot of information, it is only the CONFIG and ANSIBLE_HOME entries that need to be customised.  
+In earlier releases of Docker and with the variations between Operating Systems, we had to configure the .env file with specific CONFIG and ANSIBLE_HOME entries.  *This step should no longer be necessary*
 
-Please use the following as references for each operating system accordingly, changing the username to match your own -
+If you find that you cannot login as the ansible user with the password of password and the config files exist as per the Validation section, then update both of these entries according to your environment -
 
 Mac OS X -
 
@@ -112,7 +112,7 @@ ANSIBLE_HOME=/home/james/diveintoansible-lab/ansible_home
 
 ### Running the lab
 
-Once you've made these changes, you should then be able to run the following in your command prompt or terminal, directly from the diveintoansible-lab directory -
+You should then be able to run the following in your command prompt or terminal, directly from the diveintoansible-lab directory -
 
 ```
 docker-compose up
