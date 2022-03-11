@@ -1,19 +1,31 @@
 ## Dive Into Ansible Course Lab
 
-Lab configuration for DiveInto.com's 'Dive Into Ansible' course
+[![Follow](https://shields.io/twitter/follow/jamesspurin?label=Follow)](https://twitter.com/jamesspurin)
+[![GitHub Stars](https://shields.io/docker/pulls/spurin/diveintoansible)](https://hub.docker.com/r/spurin/diveintoansible)
+
+✨ This repository provides a local lab configuration for DiveInto.com's 'Dive Into Ansible' course ✨
 
 The related code repository is available at - https://github.com/spurin/diveintoansible
 
-At present the course is available on Udemy at [https://www.udemy.com/course/diveintoansible](https://www.udemy.com/course/diveintoansible/?referralCode=28BBB7A1DCCD01BBA51F) and will be published by Packt on other platforms like O'Reilly towards the end of December 2020 or January 2021.
+The video course relating to this lab is available on -
 
-If you experience any problems with the lab, please reach out to me direct, James Spurin, or flag an issue in the repository
+* [DiveInto](https://diveinto.com)
+* [Udemy](https://www.udemy.com/course/diveintoansible/?referralCode=28BBB7A1DCCD01BBA51F)
+* [O'Reilly](https://learning.oreilly.com/videos/dive-into-ansible/9781801076937)
+* [PacktPub](https://www.packtpub.com/product/dive-into-ansible-from-beginner-to-expert-in-ansible-video/9781801076937)
 
+🆘 If you experience any problems with the lab or the course, please reach out to me direct, James Spurin, or flag an issue in the repositories.  I'd much rather know about an issue and in doing so, help yourself and others who encounter similar problems, Thanks!
+
+🚀 **New Update:** The diveintoansible-lab can now also be executed in the cloud using Google's Free Cloud Shell Tier. For this, a standard Google account is required.  The lab setup process in Cloud Shell can be started with a single click and a setup tutorial will appear on the right hand side.  Please see https://diveinto.com/p/playground
+
+❗ **The steps that follow below are for a local running lab instance which is the recommend approach.**  Whilst the new Google Cloud Shell based lab is convenient and is great for spinning up an Ansible lab in a matter of minutes or for adhoc experimentation, a locally running lab has improved latency and you'll also benefit from data persistence (any custom playbooks you create will remain on your system between lab restarts) -
+  
 ### Installation of Docker and Docker-Compose
 
-The lab environment, makes use of Docker with Docker Compose.  If you're on Windows or Mac, you can install the convenient
+The lab environment, makes use of Docker with Docker Compose.  If you're on **Windows or Mac**, you can install the convenient
 Docker Desktop to make both Docker and Docker-Compose available
 
-Linux, will require the installation of Docker and Docker Compose
+**Linux**, will require the installation of Docker and Docker Compose.  Be aware, when installing docker-compose via apt or yum/dnf, you may install an older version that is incompatible with the lab. It is recommended that you install a version >= 1.29.1.  A standalone binary can be downloaded from the Github [releases](https://github.com/docker/compose/releases) page
 
 ### Download and Preparation
 
@@ -23,19 +35,23 @@ I recommend that the lab environment is downloaded to your respective home direc
 * Windows - C:\Users\james\diveintoansible-lab
 * Linux   - /home/james/diveintoansible-lab
 
-On a Mac or Linux system, you should be able to clone the repository accordingly from a terminal whilst in your home directory with the following command -
+**Mac or Linux**
+
+You should be able to clone the repository accordingly from a terminal whilst in your home directory with the following command -
 
 ```git clone https://github.com/spurin/diveintoansible-lab.git```
 
-On Windows, if you don't have git installed, the lab can be downloaded using the following url - https://github.com/spurin/diveintoansible-lab/archive/master.zip
+**Windows**
 
-After unzipping the archive, you must ensure that a single diveintoansible-lab folder is copied into your home directory (not multiple folders, i.e. diveintoansible-lab-master/diveintoansible-lab or diveintoansible-lab/diveintoansible-lab).  See the next section on Validation.
+If you don't have git installed, the lab can be downloaded using the following url - https://github.com/spurin/diveintoansible-lab/archive/master.zip
+
+After unzipping the archive, you must ensure that a single diveintoansible-lab folder is copied into your home directory (not multiple folders, i.e. **diveintoansible-lab-master**/diveintoansible-lab or **diveintoansible-lab/diveintoansible-lab**).  See the next section on Validation.
 
 ### Validation (IMPORTANT)
 
-Please verify that all of the lab files, are in the expected locations after either cloning, or extracting the zip file, for your corresponding OS and User.  They should be similar to the following -
+Please verify that all of the lab files, are in the expected locations after either cloning, or extracting the zip file, for your corresponding OS and User.  They should be similar to the following and all files should exist (the config files are required to setup the ansible user upon startup) -
 
-Mac OS X -
+**Mac OS X**
 
 ```
 /Users/james/diveintoansible-lab/.env
@@ -48,7 +64,7 @@ Mac OS X -
 /Users/james/diveintoansible-lab/config/root_passwd
 ```
 
-Windows -
+**Windows**
 
 ```
 C:\Users\James\diveintoansible-lab\.env
@@ -61,7 +77,7 @@ C:\Users\James\diveintoansible-lab\config\guest_shell
 C:\Users\James\diveintoansible-lab\config\root_passwd
 ```
 
-Linux -
+**Linux**
 
 ```
 /home/james/diveintoansible-lab/.env
@@ -80,7 +96,7 @@ In earlier releases of Docker and with the variations between Operating Systems,
 
 If you find that you cannot login as the ansible user with the password of password and the config files exist as per the Validation section, then update both of these entries according to your environment -
 
-Mac OS X -
+**Mac OS X**
 
 ```
 # Shared config volume
@@ -90,7 +106,7 @@ CONFIG=/Users/james/diveintoansible-lab/config
 ANSIBLE_HOME=/Users/james/diveintoansible-lab/ansible_home
 ```
 
-Windows (n.b. 'users' and the username (in my case this is james) are in lowercase, this is important) -
+**Windows (n.b. 'users' and the username (in my case this is james) are in lowercase, this is important)**
 
 ```
 # Shared config volume
@@ -100,7 +116,7 @@ CONFIG=/host_mnt/c/users/james/diveintoansible-lab/config
 ANSIBLE_HOME=/host_mnt/c/users/james/diveintoansible-lab/ansible_home
 ```
 
-Linux -
+**Linux**
 
 ```
 # Shared config volume
@@ -150,17 +166,6 @@ This command passes the volume mount manually (-v for volume), the local path (/
 
 Lastly, the ANSIBLE_HOME entry within .env should use the same format.
 
-#### 2. WSL with Ubuntu and exit code 255
-
-When using Ubuntu with WSL, this issue is a result of the WSL Ubuntu image not having systemd.  It is a stripped down version of Ubuntu. The containers, all leverage systemd and when they try to use the parents subsystem this is missing.   We can work around this by just creating the components that are needed, prior to the execution of ```docker-compose up```
-
-```
-sudo mkdir -p /sys/fs/cgroup/systemd
-sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
-```
-
-This will need to be executed once every time the system is rebooted.  Rather than making permanent changes, I recommend that in these cases, a quick shell script is created to start the lab with these commands, followed by ```docker-compose up```
-
 ### Extra step for Linux users
 
 Owing to the permissions model for Docker with Linux, there is one additional step that needs to be carried out.  With the lab working and connectivity working as ansible, perform the following actions -
@@ -185,5 +190,13 @@ To remove the lab
 ```
 docker-compose rm
 ```
+
+## Container Sources for the Lab Images
+
+The Dockerfiles used for the creation of these lab images are available from the following -
+
+* [spurin/diveintoansible-images](https://github.com/spurin/diveintoansible-images)
+
+---
 
 ![DiveIntoAnsible Cover](DiveIntoAnsible_Cover.png?raw=true "Dive Into Ansible")
