@@ -155,5 +155,8 @@ services:
 networks:
   diveinto.io:
     name: diveinto.io
-    driver_opts:
-      com.docker.network.bridge.name: "diveinto.io"
+    # Canonical bridge interface name
+    # The setting below will allow easy recognizing the bridge interface
+    # 
+    #driver_opts:
+    #  com.docker.network.bridge.name: "diveinto.io"
