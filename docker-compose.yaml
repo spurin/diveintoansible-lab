@@ -155,3 +155,5 @@ services:
 networks:
   diveinto.io:
     name: diveinto.io
+    driver_opts:
+      com.docker.network.bridge.name: "diveinto.io"
