@@ -10,7 +10,6 @@ services:
      - ${UBUNTUC_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/ubuntu-c/ansible:/home/ansible
@@ -27,7 +26,6 @@ services:
      - ${UBUNTU1_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/ubuntu1/ansible:/home/ansible
@@ -44,7 +42,6 @@ services:
      - ${UBUNTU2_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/ubuntu2/ansible:/home/ansible
@@ -61,7 +58,6 @@ services:
      - ${UBUNTU3_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/ubuntu3/ansible:/home/ansible
@@ -80,7 +76,6 @@ services:
      - ${CENTOS1_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/centos1/ansible:/home/ansible
@@ -97,7 +92,6 @@ services:
      - ${CENTOS2_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/centos2/ansible:/home/ansible
@@ -114,7 +108,6 @@ services:
      - ${CENTOS3_PORT_TTYD}:7681
     privileged: true
     volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
      - ${ANSIBLE_HOME}/shared:/shared
      - ${ANSIBLE_HOME}/centos3/ansible:/home/ansible
