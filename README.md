@@ -14,7 +14,7 @@ This branch is used for unit testing of Dive Into Ansible.  Upon execution, ubun
 To use this branch, configure the .env file as per below and execute
 
 ```
-ssh-keygen -f config/guest_ssh -P "" <<< y; cp -rf config/guest_ssh config/root_ssh; cp -rf config/guest_ssh.pub config/root_ssh.pub
+rm -rf config/*ssh*; ssh-keygen -f config/guest_ssh -P "" <<< y; cp -rf config/guest_ssh config/root_ssh; cp -rf config/guest_ssh.pub config/root_ssh.pub
 docker-compose stop; docker-compose rm --force; docker-compose pull; docker-compose up -d
 docker logs --follow ubuntu-c
 ```
