@@ -4,7 +4,9 @@ services:
   ubuntu-c:
     hostname: ubuntu-c
     container_name: ubuntu-c
-    image: spurin/diveintoansible:ansible
+    image: iamraashoka/diveintoansible:ansible
+    environment:
+     - LOCALHOST_OVERRIDE=192.29.145.8
     ports: 
      - ${UBUNTUC_PORT_SSHD}:22
      - ${UBUNTUC_PORT_TTYD}:7681
@@ -21,11 +23,13 @@ services:
   ubuntu1:
     hostname: ubuntu1
     container_name: ubuntu1
-    image: spurin/diveintoansible:ubuntu
+    image: iamraashoka/diveintoansible:ubuntu
     ports: 
      - ${UBUNTU1_PORT_SSHD}:22
      - ${UBUNTU1_PORT_TTYD}:7681
     privileged: true
+    environment:
+     - LOCALHOST_OVERRIDE=192.29.145.8
     volumes:
      - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
@@ -38,7 +42,9 @@ services:
   ubuntu2:
     hostname: ubuntu2
     container_name: ubuntu2
-    image: spurin/diveintoansible:ubuntu
+    image: iamraashoka/diveintoansible:ubuntu
+    environment:
+     - LOCALHOST_OVERRIDE=192.29.145.8
     ports: 
      - ${UBUNTU2_PORT_SSHD}:22
      - ${UBUNTU2_PORT_TTYD}:7681
@@ -55,7 +61,9 @@ services:
   ubuntu3:
     hostname: ubuntu3
     container_name: ubuntu3
-    image: spurin/diveintoansible:ubuntu
+    image: iamraashoka/diveintoansible:ubuntu
+    environment:
+     - LOCALHOST_OVERRIDE=192.29.145.8
     ports: 
      - ${UBUNTU3_PORT_SSHD}:22
      - ${UBUNTU3_PORT_TTYD}:7681
@@ -72,13 +80,15 @@ services:
   centos1:
     hostname: centos1
     container_name: centos1
-    image: spurin/diveintoansible:centos
+    image: iamraashoka/diveintoansible:centos
     #image: spurin/diveintoansible:centos-sshd-2222
     ports: 
      - ${CENTOS1_PORT_SSHD}:22
      #- ${CENTOS1_PORT_SSHD}:2222
      - ${CENTOS1_PORT_TTYD}:7681
     privileged: true
+    environment:
+     - LOCALHOST_OVERRIDE=192.29.145.8
     volumes:
      - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
@@ -91,11 +101,13 @@ services:
   centos2:
     hostname: centos2
     container_name: centos2
-    image: spurin/diveintoansible:centos
+    image: iamraashoka/diveintoansible:centos
     ports: 
      - ${CENTOS2_PORT_SSHD}:22
      - ${CENTOS2_PORT_TTYD}:7681
     privileged: true
+    environment:
+     - LOCALHOST_OVERRIDE=192.29.145.8
     volumes:
      - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
@@ -108,11 +120,13 @@ services:
   centos3:
     hostname: centos3
     container_name: centos3
-    image: spurin/diveintoansible:centos
+    image: iamraashoka/diveintoansible:centos
     ports: 
      - ${CENTOS3_PORT_SSHD}:22
      - ${CENTOS3_PORT_TTYD}:7681
     privileged: true
+    environment:
+     - LOCALHOST_OVERRIDE=192.29.145.8
     volumes:
      - /sys/fs/cgroup:/sys/fs/cgroup:ro
      - ${CONFIG}:/config
@@ -134,8 +148,10 @@ services:
   docker:
     hostname: docker
     container_name: docker
-    image: spurin/diveintoansible:dind
+    image: iamraashoka/diveintoansible:dind
     privileged: yes
+    environment:
+     - LOCALHOST_OVERRIDE=192.29.145.8
     volumes:
      - ${ANSIBLE_HOME}/shared:/shared
     networks:
@@ -144,9 +160,10 @@ services:
   portal:
     hostname: portal
     container_name: portal
-    image: spurin/diveintoansible:portal
+    image: iamraashoka/diveintoansible:portal
     environment:
      - NGINX_ENTRYPOINT_QUIET_LOGS=1
+     - LOCALHOST_OVERRIDE=192.29.145.8
     depends_on:
      - centos1
      - centos2
