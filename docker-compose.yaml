@@ -139,7 +139,7 @@ services:
     hostname: docker
     container_name: docker
     image: spurin/diveintoansible-rc:dind
-    privileged: yes
+    privileged: true
     volumes:
      - ${ANSIBLE_HOME}/shared:/shared
     networks:
