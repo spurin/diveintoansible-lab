@@ -127,7 +127,7 @@ services:
   docker:
     hostname: docker
     container_name: docker
-    image: spurin/diveintoansible-rc:dind
+    image: spurin/diveintoansible:dind
     privileged: true
     volumes:
      - ${ANSIBLE_HOME}/shared:/shared
