@@ -128,10 +128,14 @@ ANSIBLE_HOME=/home/james/diveintoansible-lab/ansible_home
 
 ### Running the lab
 
-You should then be able to run the following in your command prompt or terminal, directly from the diveintoansible-lab directory -
+If you're running a modern version of Docker as supplied via Docker Desktop, you should use compose as a subcommand, for example - `docker compose`.
+
+If you're running Docker via Linux and have downloaded the docker-compose binary direct, please use `docker-compose`.
+
+You will then be able to run the equivalent in your command prompt or terminal, directly from the diveintoansible-lab directory.
 
 ```
-docker-compose up
+docker compose up
 ```
 
 If all goes well, it should start the lab environment.  The lab is ready for use when you see text similar to the following -
@@ -143,7 +147,7 @@ Attaching to docker, centos1, ubuntu2, ubuntu3, centos2, centos3, ubuntu-c, ubun
 Keep this terminal open and running whilst using the course.  In your browser, then browse to http://localhost:1000 and you should get the lab interface.  If you find that you cannot login to the Ansible control host (ubuntu-c) as ansible and the password of password, then there is a fault with your configuration.  If this is the case, it is important to perform the following actions before troubleshooting or changing your configuration.  Press CTRL-C, then run the following -
 
 ```
-docker-compose rm
+docker compose rm
 ```
 
 Should you encounter issues at this stage that you cannot resolve, please contact me or, raise an issue in the repository with as much detail as possible (including copies of your .env file)
@@ -182,13 +186,13 @@ exit
 To refresh the images with the latest course images -
 
 ```
-docker-compose pull
+docker compose pull
 ```
 
 To remove the lab
 
 ```
-docker-compose rm
+docker compose rm
 ```
 
 ## Container Sources for the Lab Images
