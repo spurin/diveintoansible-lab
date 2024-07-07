@@ -67,10 +67,8 @@ services:
     hostname: centos1
     container_name: centos1
     image: spurin/diveintoansible-rc:centos_stream
-    #image: spurin/diveintoansible-rc:centos-sshd-2222
     ports: 
      - ${CENTOS1_PORT_SSHD}:22
-     #- ${CENTOS1_PORT_SSHD}:2222
      - ${CENTOS1_PORT_TTYD}:7681
     privileged: true
     volumes:
