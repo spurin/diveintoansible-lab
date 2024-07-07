@@ -1,5 +1,3 @@
-version: '3.8' # if no version is specificed then v1 is assumed. Recommend v2 minimum
-
 services:
   ubuntu-c:
     hostname: ubuntu-c
