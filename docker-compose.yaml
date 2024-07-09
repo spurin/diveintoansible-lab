@@ -1,5 +1,3 @@
-version: '3.8' # if no version is specificed then v1 is assumed. Recommend v2 minimum
-
 services:
   ubuntu-c:
     hostname: ubuntu-c
@@ -68,11 +66,9 @@ services:
   centos1:
     hostname: centos1
     container_name: centos1
-    image: spurin/diveintoansible:centos
-    #image: spurin/diveintoansible:centos-sshd-2222
+    image: spurin/diveintoansible:centos_stream
     ports: 
      - ${CENTOS1_PORT_SSHD}:22
-     #- ${CENTOS1_PORT_SSHD}:2222
      - ${CENTOS1_PORT_TTYD}:7681
     privileged: true
     volumes:
@@ -86,7 +82,7 @@ services:
   centos2:
     hostname: centos2
     container_name: centos2
-    image: spurin/diveintoansible:centos
+    image: spurin/diveintoansible:centos_stream
     ports: 
      - ${CENTOS2_PORT_SSHD}:22
      - ${CENTOS2_PORT_TTYD}:7681
@@ -102,7 +98,7 @@ services:
   centos3:
     hostname: centos3
     container_name: centos3
-    image: spurin/diveintoansible:centos
+    image: spurin/diveintoansible:centos_stream
     ports: 
      - ${CENTOS3_PORT_SSHD}:22
      - ${CENTOS3_PORT_TTYD}:7681
