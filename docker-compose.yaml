@@ -133,9 +133,11 @@ services:
   portal:
     hostname: portal
     container_name: portal
-    image: spurin/diveintoansible:portal-gcp-cloudshell
+    image: spurin/diveintoansible:portal
     environment:
      - NGINX_ENTRYPOINT_QUIET_LOGS=1
+     - OPEN_LINKS_AS_TABS=1
+     - PORT_OVERRIDE=8080
     depends_on:
      - centos1
      - centos2
